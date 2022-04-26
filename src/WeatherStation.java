@@ -8,7 +8,7 @@ public class WeatherStation {
 
     private LinkedList<TodaysWeatherReport> dailyReports = new LinkedList<>();
 
-    private void addTodaysReport(GregorianCalendar date, LinkedList<Reading> dailyReadings){
+    public void addTodaysReport(GregorianCalendar date, LinkedList<Reading> dailyReadings){
     LinkedList<Double> Temps = new LinkedList<>();
     LinkedList<Double> Rain = new LinkedList<>();
     for(Reading thisReading : dailyReadings){
@@ -18,7 +18,7 @@ public class WeatherStation {
     dailyReports.add(new TodaysWeatherReport(date, Temps, Rain));
     }
 
-    private double averageMonthTemp(int month, int year){
+    public double averageMonthTemp(int month, int year){
         double returnTemp = 0;
     if(0 <= month && month <= 11) {
         for (TodaysWeatherReport dailyReport : dailyReports) {
@@ -32,7 +32,7 @@ public class WeatherStation {
     return returnTemp;
     }
 
-    private double totalMonthRainfall(int month, int year){
+    public double totalMonthRainfall(int month, int year){
         double rainCount = 0;
         if(0 <= month && month <= 11){
             for (TodaysWeatherReport dailyReport : dailyReports) {
