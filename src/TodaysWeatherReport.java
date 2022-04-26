@@ -12,6 +12,21 @@ public class TodaysWeatherReport {
         this.temperatureReadings = temperatureReadings;
         this.rainfallReadings = rainfallReadings;
     }
+    public double dailyRain(){
+        double returnTotal = 0;
+        for( Double Readings : rainfallReadings){
+            returnTotal += Readings;
+        }
+        return returnTotal;
+    }
+
+    public double dailyTemp(){
+        double returnTotal = 0;
+        for( Double Readings : temperatureReadings){
+            returnTotal += Readings;
+        }
+        return (returnTotal / temperatureReadings.size());
+    }
 
     public GregorianCalendar getDate(){
         return this.date;
