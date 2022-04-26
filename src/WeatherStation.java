@@ -3,7 +3,6 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 public class WeatherStation {
-
     public WeatherStation(){
 
     }
@@ -20,27 +19,32 @@ public class WeatherStation {
     dailyReports.add(new TodaysWeatherReport(date, Temps, Rain));
     }
 
-    public void averageMonthTemp(int month, int year){
+    public double averageMonthTemp(int month, int year){
         double returnTemp = 0;
-    if(0 <= month && month <= 11){
-        for(TodaysWeatherReport dailyReport : dailyReports){
-            if( dailyReport. = month && element.year = year){
-                returnTemp += element;
+    if(0 <= month && month <= 11) {
+        for (TodaysWeatherReport dailyReport : dailyReports) {
+            if (dailyReport.date.get(GregorianCalendar.MONTH) == month &&
+                    dailyReport.date.get(GregorianCalendar.YEAR) == year) {
+                returnTemp += dailyReport.dailyTemp();
             }
         }
-        return (returnTemp / list.size());
-
+        return (returnTemp / dailyReports.size());
     }
+    return returnTemp;
     }
 
-    public void totalMonthRainfall(int month, int year){
+    public double totalMonthRainfall(int month, int year){
         double rainCount = 0;
         if(0 <= month && month <= 11){
-            for(Object element : list){
-                if( element.month = month && element.year = year){
-                    rainCount += element.rain;r
+            for (TodaysWeatherReport dailyReport : dailyReports) {
+                if (dailyReport.date.get(GregorianCalendar.MONTH) == month &&
+                        dailyReport.date.get(GregorianCalendar.YEAR) == year) {
+                    rainCount += dailyReport.dailyRain();
                 }
             }
+            return rainCount;
+        }
+        return rainCount;
         }
     }
-}
+
