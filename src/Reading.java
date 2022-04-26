@@ -1,7 +1,7 @@
 public class Reading {
-    Time currTime;
-    double tempF;
-    double amountRain;
+    private Time currTime;
+    private double tempF;
+    private double amountRain;
     public Reading(Time currTime, double tempF, double amountRain){
         this.currTime = currTime;
         this.tempF = tempF;

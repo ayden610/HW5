@@ -4,28 +4,27 @@ import java.util.LinkedList;
 
 public class WeatherStation {
     public WeatherStation(){
-
     }
 
-    LinkedList<TodaysWeatherReport> dailyReports = new LinkedList<>();
+    private LinkedList<TodaysWeatherReport> dailyReports = new LinkedList<>();
 
-    public void addTodaysReport(GregorianCalendar date, LinkedList<Reading> dailyReadings){
+    private void addTodaysReport(GregorianCalendar date, LinkedList<Reading> dailyReadings){
     LinkedList<Double> Temps = new LinkedList<>();
     LinkedList<Double> Rain = new LinkedList<>();
     for(Reading thisReading : dailyReadings){
-        Rain.add(thisReading.amountRain);
-        Temps.add(thisReading.tempF);
+        Rain.add(thisReading.getAmountRain());
+        Temps.add(thisReading.getTempF());
     }
     dailyReports.add(new TodaysWeatherReport(date, Temps, Rain));
     }
 
-    public double averageMonthTemp(int month, int year){
+    private double averageMonthTemp(int month, int year){
         double returnTemp = 0;
     if(0 <= month && month <= 11) {
         for (TodaysWeatherReport dailyReport : dailyReports) {
-            if (dailyReport.date.get(GregorianCalendar.MONTH) == month &&
-                    dailyReport.date.get(GregorianCalendar.YEAR) == year) {
-                returnTemp += dailyReport.dailyTemp();
+            if (dailyReport.getDate().get(GregorianCalendar.MONTH) == month &&
+                    dailyReport.getDate().get(GregorianCalendar.YEAR) == year) {
+                returnTemp += dailyReport.getdailyTemp();
             }
         }
         return (returnTemp / dailyReports.size());
@@ -33,13 +32,13 @@ public class WeatherStation {
     return returnTemp;
     }
 
-    public double totalMonthRainfall(int month, int year){
+    private double totalMonthRainfall(int month, int year){
         double rainCount = 0;
         if(0 <= month && month <= 11){
             for (TodaysWeatherReport dailyReport : dailyReports) {
-                if (dailyReport.date.get(GregorianCalendar.MONTH) == month &&
-                        dailyReport.date.get(GregorianCalendar.YEAR) == year) {
-                    rainCount += dailyReport.dailyRain();
+                if (dailyReport.getDate().get(GregorianCalendar.MONTH) == month &&
+                        dailyReport.getDate().get(GregorianCalendar.YEAR) == year) {
+                    rainCount += dailyReport.getdailyRain();
                 }
             }
             return rainCount;
