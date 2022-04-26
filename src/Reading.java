@@ -7,4 +7,14 @@ public class Reading {
         this.tempF = tempF;
         this.amountRain = amountRain;
     }
+    public double getTempF() {
+        return tempF;
+    }
+    public double getAmountRain() {
+        return amountRain;
+    }
+
+    public Time getCurrTime() {
+        return currTime;
+    }
 }

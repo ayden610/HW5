@@ -5,6 +5,7 @@ public class WeatherStation {
     }
     public void averageMonthTemp(int month, int year){
     if(0 <= month && month <= 11){
+
     }
     }
 
