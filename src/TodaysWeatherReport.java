@@ -2,9 +2,9 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 public class TodaysWeatherReport {
-    GregorianCalendar date;
-    LinkedList<Double> temperatureReadings;
-    LinkedList<Double> rainfallReadings;
+    private GregorianCalendar date;
+    private LinkedList<Double> temperatureReadings;
+    private LinkedList<Double> rainfallReadings;
 
     TodaysWeatherReport(GregorianCalendar date, LinkedList<Double> temperatureReadings,
                         LinkedList<Double> rainfallReadings){
@@ -12,7 +12,7 @@ public class TodaysWeatherReport {
         this.temperatureReadings = temperatureReadings;
         this.rainfallReadings = rainfallReadings;
     }
-    public double dailyRain(){
+    private double dailyRain(){
         double returnTotal = 0;
         for( Double Readings : rainfallReadings){
             returnTotal += Readings;
@@ -20,7 +20,7 @@ public class TodaysWeatherReport {
         return returnTotal;
     }
 
-    public double dailyTemp(){
+    private double dailyTemp(){
         double returnTotal = 0;
         for( Double Readings : temperatureReadings){
             returnTotal += Readings;
@@ -32,11 +32,12 @@ public class TodaysWeatherReport {
         return this.date;
     }
 
-    public LinkedList<Double> getTemperatureReadings() {
-        return this.temperatureReadings;
+    public double getdailyTemp() {
+        return this.dailyTemp();
     }
 
-    public LinkedList<Double> getRainfallReadings() {
-        return this.rainfallReadings;
+    public double getdailyRain() {
+        return this.dailyRain();
     }
 }
+
