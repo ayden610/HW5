@@ -64,9 +64,9 @@ public class WeatherStation implements IStruct{
                     rainCount += dailyReport.getdailyRain();
                 }
             }
-            return rainCount;
+            return rainCount / 2; //data was being doubled due to the new struct
         }
-        return rainCount;
+        return rainCount /2;
         }
     }
 
