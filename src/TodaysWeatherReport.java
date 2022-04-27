@@ -15,9 +15,8 @@ public class TodaysWeatherReport {
     }
 
     /**
-     * A method that finds the total rain fall in a day
-     *
-     * @param rainfallReadings the data for rainfall in a day
+     * This method uses the List of rain readings stored in the class
+     * and returns the total rain for the day
      * @return returnTotal the sum of rainfall data collected
      */
     private double dailyRain(){
@@ -29,9 +28,8 @@ public class TodaysWeatherReport {
     }
 
     /**
-     * A method that averages out the temperature readings in a day
-     *
-     * @param temperatureReadings The data for temperatures recorded for a day
+     *This function uses the List of temp readings from within the class
+     * to fina the daily average temp
      * @return returnTotal The average temperature for a day
      */
     private double dailyTemp(){

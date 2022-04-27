@@ -4,12 +4,13 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import static org.junit.Assert.*;
 
-public class Examples {
+public class Examples implements IStruct{
     LinkedList<Reading> day1;
     LinkedList<Reading> day2;
     LinkedList<Reading> day3;
     LinkedList<Reading> day4;
-    WeatherStation station1 = new WeatherStation();
+    IStruct aStruct;
+    WeatherStation station1 = new WeatherStation(aStruct);
 
     public Examples() {
         GregorianCalendar date1 = new GregorianCalendar(2022, 3, 1);

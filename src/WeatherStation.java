@@ -2,11 +2,11 @@
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
-public class WeatherStation {
-    public WeatherStation(){
+public class WeatherStation implements IStruct{
+    public WeatherStation(IStruct struct){
     }
 
-    private LinkedList<TodaysWeatherReport> dailyReports = new LinkedList<>();
+    private IStruct dailyReports;
 
     /**
      * Method that takes recordings from today's weather report
@@ -24,7 +24,7 @@ public class WeatherStation {
         Rain.add(thisReading.getAmountRain());
         Temps.add(thisReading.getTempF());
     }
-    dailyReports.add(new TodaysWeatherReport(date, Temps, Rain));
+    dailyReports.thisStruct.add(new TodaysWeatherReport(date, Temps, Rain));
     }
 
     /**
@@ -37,13 +37,13 @@ public class WeatherStation {
     public double averageMonthTemp(int month, int year){
         double returnTemp = 0;
     if(0 <= month && month <= 11) {
-        for (TodaysWeatherReport dailyReport : dailyReports) {
+        for (TodaysWeatherReport dailyReport : dailyReports.thisStruct) {
             if (dailyReport.getDate().get(GregorianCalendar.MONTH) == month &&
                     dailyReport.getDate().get(GregorianCalendar.YEAR) == year) {
                 returnTemp += dailyReport.getdailyTemp();
             }
         }
-        return (returnTemp / dailyReports.size());
+        return (returnTemp / dailyReports.thisStruct.size());
     }
     return returnTemp;
     }
@@ -58,7 +58,7 @@ public class WeatherStation {
     public double totalMonthRainfall(int month, int year){
         double rainCount = 0;
         if(0 <= month && month <= 11){
-            for (TodaysWeatherReport dailyReport : dailyReports) {
+            for (TodaysWeatherReport dailyReport : dailyReports.thisStruct) {
                 if (dailyReport.getDate().get(GregorianCalendar.MONTH) == month &&
                         dailyReport.getDate().get(GregorianCalendar.YEAR) == year) {
                     rainCount += dailyReport.getdailyRain();
